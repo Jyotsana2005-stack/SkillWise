@@ -1,0 +1,147 @@
+Here's a simple implementation of binary search in various programming languages:
+
+
+Java
+
+public class BinarySearch {
+    public static int binarySearch(int[] array, int target) {
+        int left = 0;
+        int right = array.length - 1;
+        
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            
+            if (array[mid] == target) {
+                return mid;
+            } else if (array[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        
+        return -1; // Target not found
+    }
+
+    public static void main(String[] args) {
+        int[] array = {1, 3, 5, 7, 9, 11, 13, 15};
+        int target = 9;
+        int result = binarySearch(array, target);
+        
+        if (result != -1) {
+            System.out.println("Target found at index " + result);
+        } else {
+            System.out.println("Target not found");
+        }
+    }
+}
+
+
+
+Python
+
+def binary_search(array, target):
+    left = 0
+    right = len(array) - 1
+    
+    while left <= right:
+        mid = (left + right) // 2
+        
+        if array[mid] == target:
+            return mid
+        elif array[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return -1  # Target not found
+
+
+array = [1, 3, 5, 7, 9, 11, 13, 15]
+target = 9
+result = binary_search(array, target)
+
+
+if result != -1:
+    print("Target found at index", result)
+else:
+    print("Target not found")
+
+
+
+C++
+
+#include <iostream>
+using namespace std;
+
+int binarySearch(int array[], int size, int target) {
+    int left = 0;
+    int right = size - 1;
+    
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        
+        if (array[mid] == target) {
+            return mid;
+        } else if (array[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return -1;  // Target not found
+}
+
+
+int main() {
+    int array[] = {1, 3, 5, 7, 9, 11, 13, 15};
+    int size = sizeof(array) / sizeof(array[0]);
+    int target = 9;
+    int result = binarySearch(array, size, target);
+    
+    if (result != -1) {
+        cout << "Target found at index " << result << endl;
+    } else {
+        cout << "Target not found" << endl;
+    }
+    
+    return 0;
+}
+
+
+
+JavaScript
+
+function binarySearch(array, target) {
+    let left = 0;
+    let right = array.length - 1;
+    
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        
+        if (array[mid] === target) {
+            return mid;
+        } else if (array[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return -1;  // Target not found
+}
+
+
+let array = [1, 3, 5, 7, 9, 11, 13, 15];
+let target = 9;
+let result = binarySearch(array, target);
+
+
+if (result !== -1) {
+    console.log(`Target found at index ${result}`);
+} else {
+    console.log("Target not found");
+}
+
+
